@@ -28,12 +28,4 @@ public class CloudUploadFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.cloud_upload_fragment, container, false);
     }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(CloudUploadViewModel.class);
-        // TODO: Use the ViewModel
-    }
-
 }

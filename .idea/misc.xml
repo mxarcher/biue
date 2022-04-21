@@ -12,11 +12,13 @@
         <entry key="..\:/Projects/Android/Biue/app/src/main/res/drawable/ic_launcher_background.xml" value="0.335" />
         <entry key="..\:/Projects/Android/Biue/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Projects/Android/Biue/app/src/main/res/layout/cloud_upload_fragment.xml" value="0.3619791666666667" />
+        <entry key="..\:/Projects/Android/Biue/app/src/main/res/layout/fragment_container.xml" value="0.17528858486532706" />
         <entry key="..\:/Projects/Android/Biue/app/src/main/res/layout/fragment_home.xml" value="0.3697916666666667" />
         <entry key="..\:/Projects/Android/Biue/app/src/main/res/layout/fragment_pre.xml" value="0.3697916666666667" />
         <entry key="..\:/Projects/Android/Biue/app/src/main/res/layout/settings_fragment.xml" value="0.3619791666666667" />
         <entry key="..\:/Projects/Android/Biue/app/src/main/res/layout/waves_fragment.xml" value="0.3619791666666667" />
         <entry key="..\:/Projects/Android/Biue/app/src/main/res/menu/bottom_menu.xml" value="0.3619791666666667" />
+        <entry key="..\:/Projects/Android/Biue/app/src/main/res/xml/perference.xml" value="0.1" />
       </map>
     </option>
   </component>

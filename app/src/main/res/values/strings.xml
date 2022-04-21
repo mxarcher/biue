@@ -13,4 +13,9 @@
     <string name="bottom_menu_waves">波形</string>
     <string name="bottom_menu_settings">设置</string>
 
+
+    <string name="preference_group_user">用户</string>
+    <string name="preference_user_edit_title">当前用户名</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

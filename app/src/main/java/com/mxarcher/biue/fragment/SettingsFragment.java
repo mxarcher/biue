@@ -1,39 +1,21 @@
 package com.mxarcher.biue.fragment;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.mxarcher.biue.R;
-import com.mxarcher.biue.models.SettingsViewModel;
 
-public class SettingsFragment extends Fragment {
+public class SettingsFragment extends  PreferenceFragmentCompat{
 
-    private SettingsViewModel mViewModel;
-
-    public static SettingsFragment newInstance() {
-        return new SettingsFragment();
-    }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.settings_fragment, container, false);
-    }
+    public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
+        String config_file_name = getResources().getString(R.string.config_file_name);
+        getPreferenceManager().setSharedPreferencesName(config_file_name);
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(SettingsViewModel.class);
-        // TODO: Use the ViewModel
+        // 放在后面可以正常读取配置
+        setPreferencesFromResource(R.xml.perference,rootKey);
     }
-
 }

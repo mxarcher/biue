@@ -29,11 +29,4 @@ public class WavesFragment extends Fragment {
         return inflater.inflate(R.layout.waves_fragment, container, false);
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(WavesViewModel.class);
-        // TODO: Use the ViewModel
-    }
-
 }

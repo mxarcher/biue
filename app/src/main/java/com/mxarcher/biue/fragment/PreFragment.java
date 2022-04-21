@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +15,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.mxarcher.biue.R;
 import com.mxarcher.biue.models.ConfigViewModel;
 
 public class PreFragment extends Fragment {
-    private ConfigViewModel viewModel;
+    private ConfigViewModel mViewModel;
+    private static final String TAG = "PreFragment";
 
 
     @Override
@@ -40,7 +40,7 @@ public class PreFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel = new ViewModelProvider(requireActivity()).get(ConfigViewModel.class);
+        mViewModel = new ViewModelProvider(requireActivity()).get(ConfigViewModel.class);
 
         // 初始化配置文件
         SharedPreferences shp = requireActivity().getSharedPreferences(getString(R.string.config_file_name), Context.MODE_PRIVATE);
@@ -68,8 +68,9 @@ public class PreFragment extends Fragment {
             Toast.makeText(getActivity(),"请输入名字",Toast.LENGTH_SHORT).show();
             return;
         }
-        viewModel.setUsername(username);
+        mViewModel.setUsername(username);
         NavHostFragment.findNavController(this).popBackStack();
-        NavHostFragment.findNavController(this).navigate(R.id.homeFragment);
+        NavHostFragment.findNavController(this).navigate(R.id.blueToothFragment);
+        Log.d(TAG, "enter: 1");
     }
 }

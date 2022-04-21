@@ -4,17 +4,21 @@
     <item
         android:id="@+id/blueToothFragment"
         android:icon="@drawable/ic_baseline_bluetooth_24"
-        android:title="@string/bottom_menu_bluetooth" />
+        android:title="@string/bottom_menu_bluetooth"
+        android:visible="true" />
     <item
         android:id="@+id/wavesFragment"
         android:icon="@drawable/ic_baseline_waves_24"
-        android:title="@string/bottom_menu_waves" />
+        android:title="@string/bottom_menu_waves"
+        android:visible="true" />
     <item
         android:id="@+id/cloudUploadFragment"
         android:icon="@drawable/ic_baseline_cloud_upload_24"
-        android:title="@string/bottom_menu_upload" />
+        android:title="@string/bottom_menu_upload"
+        android:visible="true" />
     <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="@string/bottom_menu_settings" />
+        android:title="@string/bottom_menu_settings"
+        android:visible="true" />
 </menu>
