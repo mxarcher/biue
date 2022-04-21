@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Biue</string>
+    <string name="username_hint">请填入用户名</string>
+    <string name="home_fragment">主页</string>
+    <string name="pre_fragment">准备页</string>
+    <string name="config_file_name">config</string>
+    <string name="username_default">admin</string>
+    <string name="username_key">username</string>
+    <string name="confirm">确认</string>
+
+    <string name="bottom_menu_bluetooth">蓝牙</string>
+    <string name="bottom_menu_upload">上传</string>
+    <string name="bottom_menu_waves">波形</string>
+    <string name="bottom_menu_settings">设置</string>
+
+</resources>

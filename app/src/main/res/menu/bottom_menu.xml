@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/blueToothFragment"
+        android:icon="@drawable/ic_baseline_bluetooth_24"
+        android:title="@string/bottom_menu_bluetooth" />
+    <item
+        android:id="@+id/wavesFragment"
+        android:icon="@drawable/ic_baseline_waves_24"
+        android:title="@string/bottom_menu_waves" />
+    <item
+        android:id="@+id/cloudUploadFragment"
+        android:icon="@drawable/ic_baseline_cloud_upload_24"
+        android:title="@string/bottom_menu_upload" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/bottom_menu_settings" />
+</menu>
