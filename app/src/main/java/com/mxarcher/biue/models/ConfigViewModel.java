@@ -20,7 +20,7 @@ import com.mxarcher.biue.livedata.ConfigLiveData;
 public class ConfigViewModel extends AndroidViewModel {
     final String config_file_name = getApplication().getResources().getString(R.string.config_file_name);
     SharedPreferences sharedPreferences;
-    ConfigLiveData configLiveData;
+    private ConfigLiveData configLiveData;
 
     public ConfigViewModel(@NonNull Application application) {
         super(application);
@@ -40,5 +40,9 @@ public class ConfigViewModel extends AndroidViewModel {
     }
     public boolean isEmpty(){
         return configLiveData == null;
+    }
+
+    public ConfigLiveData getConfigLiveData() {
+        return configLiveData;
     }
 }

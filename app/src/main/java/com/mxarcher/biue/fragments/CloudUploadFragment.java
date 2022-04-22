@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -43,7 +44,8 @@ public class CloudUploadFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         viewPager2 = view.findViewById(R.id.fragment_upload_viewpager);
-        FragmentAdapter adapter = new FragmentAdapter(requireActivity());
+        //参考: https://stackoverflow.com/questions/60129178/viewpager2-tabs-problem-with-viewmodel-state
+        FragmentAdapter adapter = new FragmentAdapter(getChildFragmentManager(), getLifecycle());
         adapter.addFragment(new UserFragment());
         adapter.addFragment(new CollectionFragment());
         adapter.addFragment(new HandleFragment());

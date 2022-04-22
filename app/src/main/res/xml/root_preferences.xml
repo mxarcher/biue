@@ -22,7 +22,7 @@
             android:title="@string/title_cloud_ip"
             app:useSimpleSummaryProvider="true" />
         <EditTextPreference
-            android:defaultValue="Default value"
+            android:defaultValue="false"
             android:key="@string/key_cloud_port"
             android:persistent="true"
             android:selectAllOnFocus="true"

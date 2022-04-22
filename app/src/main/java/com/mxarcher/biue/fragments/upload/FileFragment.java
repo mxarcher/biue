@@ -3,6 +3,7 @@ package com.mxarcher.biue.fragments.upload;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,14 +17,14 @@ import androidx.lifecycle.ViewModelProvider;
 import com.mxarcher.biue.R;
 import com.mxarcher.biue.models.ConfigViewModel;
 
-import java.util.ArrayList;
-
 public class FileFragment extends Fragment {
+    private static final String TAG = "FileFragment";
     ConfigViewModel viewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onViewCreated: enter");
     }
 
     @Override
@@ -36,6 +37,7 @@ public class FileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.d(TAG, "onViewCreated: enter");
 
         viewModel = new ViewModelProvider(requireActivity()).get(ConfigViewModel.class);
         if (viewModel.isEmpty()) {
@@ -44,12 +46,12 @@ public class FileFragment extends Fragment {
             SharedPreferences sharedPreferences = requireActivity().getSharedPreferences(config_file_name, Context.MODE_PRIVATE);
             viewModel.set(sharedPreferences);
         }
-        ArrayList<String> keys = new ArrayList<>();
+//        ArrayList<String> keys = new ArrayList<>();
         String key1 = getResources().getString(R.string.key_operator_name);
-//        String key2 = getResources().getString(R.string.key_cloud_ip);
-//        String key3 = getResources().getString(R.string.key_cloud_port);
         TextView tv = view.findViewById(R.id.fragment_file_tv);
-        tv.setText(String.format("%s: %s", key1, viewModel.get(key1)));
-
+        viewModel.getConfigLiveData().observe(getViewLifecycleOwner(), stringMap -> {
+            Log.d(TAG, "onViewCreated: " + stringMap.toString());
+            tv.setText(String.format("%s: %s", key1, viewModel.get(key1)));
+        });
     }
 }

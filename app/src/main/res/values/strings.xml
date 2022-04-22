@@ -32,4 +32,5 @@
     <string name="key_operator_name">operator_name</string>
     <string name="key_cloud_ip">cloud_ip</string>
     <string name="key_cloud_port">cloud_port</string>
+    <string name="fragment_user_add">添加被采集者信息</string>
 </resources>
