@@ -3,19 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/default_nav"
-    app:startDestination="@id/preFragment">
+    app:startDestination="@id/cloudUploadFragment">
+    <!--在这里可以设置默认启动界面-->
 
-    <fragment
-        android:id="@+id/preFragment"
-        android:name="com.mxarcher.biue.fragment.PreFragment"
-        android:label="@string/pre_fragment"
-        tools:layout="@layout/fragment_pre">
-        <action
-            android:id="@+id/action_preFragment_to_blueToothFragment"
-            app:destination="@id/blueToothFragment"
-            app:popUpTo="@id/blueToothFragment"
-            app:popUpToInclusive="true" />
-    </fragment>
     <fragment
         android:id="@+id/blueToothFragment"
         android:name="com.mxarcher.biue.fragment.BlueToothFragment"
@@ -31,9 +21,4 @@
         android:name="com.mxarcher.biue.fragment.CloudUploadFragment"
         android:label="@string/bottom_menu_upload"
         tools:layout="@layout/cloud_upload_fragment" />
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.mxarcher.biue.fragment.SettingsFragment"
-        android:label="@string/bottom_menu_settings"
-        tools:layout="@layout/settings_fragment" />
 </navigation>

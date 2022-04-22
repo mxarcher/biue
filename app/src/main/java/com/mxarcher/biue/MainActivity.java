@@ -2,20 +2,13 @@ package com.mxarcher.biue;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.mxarcher.biue.fragment.PreFragment;
-import com.mxarcher.biue.fragment.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,13 +24,14 @@ public class MainActivity extends AppCompatActivity {
 */
 
 
-        // 初始化配置信息
+        // 设置默认界面为蓝牙所在界面
 //        if( savedInstanceState == null){
 //            getSupportFragmentManager()
 //                    .beginTransaction()
-//                    .replace(R.id.settings, new SettingsFragment())
+//                    .replace(R.id.blueToothFragment, new BlueToothFragment())
 //                    .commit();
 //        }
+
 //        ActionBar actionBar = getSupportActionBar();
 //        if(actionBar!=null){
 //            actionBar.setDisplayHomeAsUpEnabled(true);
