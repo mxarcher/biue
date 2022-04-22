@@ -24,5 +24,5 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.mxarcher.biue.fragments.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="@string/bottom_menu_settings" />
 </navigation>
