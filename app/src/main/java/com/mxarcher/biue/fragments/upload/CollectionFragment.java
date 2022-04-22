@@ -1,4 +1,4 @@
-package com.mxarcher.biue.fragment.upload;
+package com.mxarcher.biue.fragments.upload;
 
 import android.os.Bundle;
 

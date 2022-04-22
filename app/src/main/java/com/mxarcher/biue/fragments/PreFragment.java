@@ -1,4 +1,4 @@
-package com.mxarcher.biue.fragment;
+package com.mxarcher.biue.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -68,7 +68,7 @@ public class PreFragment extends Fragment {
             Toast.makeText(getActivity(),"请输入名字",Toast.LENGTH_SHORT).show();
             return;
         }
-        mViewModel.setUsername(username);
+//        mViewModel.setUsername(username);
         NavHostFragment.findNavController(this).popBackStack();
         NavHostFragment.findNavController(this).navigate(R.id.blueToothFragment);
         Log.d(TAG, "enter: 1");

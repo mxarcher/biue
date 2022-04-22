@@ -1,4 +1,4 @@
-package com.mxarcher.biue.fragment.upload;
+package com.mxarcher.biue.fragments.upload;
 
 import android.os.Bundle;
 
@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.mxarcher.biue.R;
 
-public class FileFragment extends Fragment {
+public class UserFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class FileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_file, container, false);
+        return inflater.inflate(R.layout.fragment_user, container, false);
     }
 
     @Override

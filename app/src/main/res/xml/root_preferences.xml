@@ -1,0 +1,33 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="@string/title_operator">
+
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="@string/key_operator_name"
+            android:persistent="true"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_operator_name"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/title_cloud">
+
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="@string/key_cloud_ip"
+            android:persistent="true"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_cloud_ip"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="@string/key_cloud_port"
+            android:persistent="true"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_cloud_port"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

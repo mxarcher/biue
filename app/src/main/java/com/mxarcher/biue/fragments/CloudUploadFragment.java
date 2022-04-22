@@ -1,4 +1,4 @@
-package com.mxarcher.biue.fragment;
+package com.mxarcher.biue.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,16 +8,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.mxarcher.biue.R;
-import com.mxarcher.biue.adapter.FragmentAdapter;
-import com.mxarcher.biue.fragment.upload.CollectionFragment;
-import com.mxarcher.biue.fragment.upload.FileFragment;
-import com.mxarcher.biue.fragment.upload.HandleFragment;
-import com.mxarcher.biue.fragment.upload.UserFragment;
+import com.mxarcher.biue.adapters.FragmentAdapter;
+import com.mxarcher.biue.fragments.upload.CollectionFragment;
+import com.mxarcher.biue.fragments.upload.FileFragment;
+import com.mxarcher.biue.fragments.upload.HandleFragment;
+import com.mxarcher.biue.fragments.upload.UserFragment;
+import com.mxarcher.biue.models.ConfigViewModel;
 
 public class CloudUploadFragment extends Fragment {
     private static final String TAG = "CloudUploadFragment";
@@ -64,6 +66,13 @@ public class CloudUploadFragment extends Fragment {
                     break;
             }
         }).attach();
+
+//        viewModel = new ViewModelProvider(requireActivity()).get(ConfigViewModel.class);
+//        测试
+//        if(viewModel.isEmpty()){
+//             如果viewmodel里没有配置shp,则表明没有初始化，进行初始化
+//            viewModel.set(getPreferenceManager().getSharedPreferences());
+//        }
     }
 }
 

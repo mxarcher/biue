@@ -16,4 +16,8 @@
         android:icon="@drawable/ic_baseline_cloud_upload_24"
         android:title="@string/bottom_menu_upload"
         android:visible="true" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/bottom_menu_settings" />
 </menu>

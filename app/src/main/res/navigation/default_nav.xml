@@ -8,17 +8,21 @@
 
     <fragment
         android:id="@+id/blueToothFragment"
-        android:name="com.mxarcher.biue.fragment.BlueToothFragment"
+        android:name="com.mxarcher.biue.fragments.BlueToothFragment"
         android:label="@string/bottom_menu_bluetooth"
         tools:layout="@layout/blue_tooth_fragment" />
     <fragment
         android:id="@+id/wavesFragment"
-        android:name="com.mxarcher.biue.fragment.WavesFragment"
+        android:name="com.mxarcher.biue.fragments.WavesFragment"
         android:label="@string/bottom_menu_waves"
         tools:layout="@layout/waves_fragment" />
     <fragment
         android:id="@+id/cloudUploadFragment"
-        android:name="com.mxarcher.biue.fragment.CloudUploadFragment"
+        android:name="com.mxarcher.biue.fragments.CloudUploadFragment"
         android:label="@string/bottom_menu_upload"
         tools:layout="@layout/cloud_upload_fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.mxarcher.biue.fragments.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

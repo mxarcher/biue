@@ -1,4 +1,4 @@
-package com.mxarcher.biue.fragment;
+package com.mxarcher.biue.fragments;
 
 import androidx.lifecycle.ViewModelProvider;
 

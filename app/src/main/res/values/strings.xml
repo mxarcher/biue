@@ -18,4 +18,18 @@
     <string name="preference_user_edit_title">当前用户名</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 设置界面标题 -->
+    <string name="title_operator">操作者信息</string>
+    <string name="title_cloud">服务器信息</string>
+
+    <!--  设置界面具体内容的标题  -->
+    <string name="title_operator_name">操作者姓名</string>
+    <string name="title_cloud_ip">ip地址</string>
+    <string name="title_cloud_port">端口号</string>
+
+    <!--  设置信息对应的key   -->
+    <string name="key_operator_name">operator_name</string>
+    <string name="key_cloud_ip">cloud_ip</string>
+    <string name="key_cloud_port">cloud_port</string>
 </resources>
