@@ -13,7 +13,7 @@ import androidx.lifecycle.LiveData;
 public abstract class SharedPreferenceLiveData<T> extends LiveData<T> {
     SharedPreferences sharedPrefs;
     String key;
-    private SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
+    private final SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
         if (SharedPreferenceLiveData.this.key.equals(key)) {
             setValue(getValueFromPreferences(key));
         }

@@ -4,134 +4,147 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.upload.dialog.UserFullScreenDialogFragment">
+    tools:context=".views.upload.dialog.UserFullScreenDialogFragment">
 
     <!--    <com.google.android.material.appbar.MaterialToolbar-->
     <!--        android:layout_width="match_parent"-->
     <!--        android:layout_height="wrap_content"-->
     <!--        android:background="?attr/colorBackgroundFloating"-->
     <!--        />-->
-    <LinearLayout
-        android:id="@+id/linearLayout"
+
+    <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/fragment_handle_full_toolbar"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarWidgetTheme" />
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/fragment_handle_full_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:hint="被采集者姓名"
-                android:inputType="text"
-                android:maxLines="1"
-                android:nextFocusForward="@id/genderChoose" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarWidgetTheme"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:title="被采集者信息"
+                app:titleTextColor="@color/white" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_dialog_set_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:hint="被采集者姓名"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:nextFocusForward="@id/user_dialog_select_gender" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-        <RadioGroup
-            android:id="@+id/genderChoose"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusableInTouchMode="true"
-            android:nextFocusForward="@id/user_dialog_set_height"
-            android:orientation="horizontal">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="性别" />
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:hint="男" />
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:hint="女" />
-        </RadioGroup>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/user_dialog_set_height"
+            <RadioGroup
+                android:id="@+id/user_dialog_select_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:hint="身高"
-                android:inputType="numberDecimal"
-                android:maxLines="1"
-                android:nextFocusForward="@id/user_dialog_set_weight" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:focusableInTouchMode="true"
+                android:nextFocusForward="@id/user_dialog_set_height"
+                android:orientation="horizontal">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="性别" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/user_dialog_set_weight"
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/user_dialog_gender_man"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="男" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/user_dialog_gender_woman"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="女" />
+            </RadioGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:hint="体重"
-                android:inputType="numberDecimal"
-                android:maxLines="1"
-                android:nextFocusForward="@id/user_dialog_set_comments" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_dialog_set_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:hint="身高"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:nextFocusForward="@id/user_dialog_set_weight" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/user_dialog_set_comments"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:hint="备注"
-                android:inputType="textMultiLine"
-                android:maxLines="10"
-                android:minLines="6"
-                android:nextFocusForward="@id/genderChoose"
-                android:scrollbars="vertical" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content">
 
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_dialog_set_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:hint="体重"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:nextFocusForward="@id/user_dialog_set_comments" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/elevatedButton"
-        style="@style/Widget.Material3.Button.ElevatedButton"
-        android:layout_width="131dp"
-        android:layout_height="67dp"
-        android:layout_gravity="right"
-        android:backgroundTint="@color/purple_200"
-        android:text="Elevated button"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_dialog_set_comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:hint="备注"
+                    android:inputType="textMultiLine"
+                    android:maxLines="10"
+                    android:minLines="6"
+                    android:nextFocusForward="@id/user_dialog_select_gender"
+                    android:scrollbars="vertical" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/user_dialog_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/confirm"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

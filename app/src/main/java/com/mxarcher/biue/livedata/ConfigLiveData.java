@@ -15,4 +15,9 @@ public class ConfigLiveData extends SharedPreferenceLiveData<Map<String, ?>> {
     public Map<String, ?> getValueFromPreferences(String key) {
         return sharedPrefs.getAll();
     }
+
+    @Override
+    protected void onActive() {
+        super.onActive();
+    }
 }

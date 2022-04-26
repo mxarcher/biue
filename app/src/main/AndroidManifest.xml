@@ -2,16 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mxarcher.biue">
 
+    <!-- 设置权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--
+    android:usesCleartextTraffic="true"
+    表明支持http协议，目前不需要进行https传输，待优化
+    -->
+
+    <!--    adjust pan 使输入法不遮住输入框-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Biue">
+        android:theme="@style/Theme.Biue"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

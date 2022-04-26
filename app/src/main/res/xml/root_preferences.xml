@@ -3,7 +3,7 @@
     <PreferenceCategory android:title="@string/title_operator">
 
         <EditTextPreference
-            android:defaultValue="Default value"
+            android:defaultValue="admin"
             android:key="@string/key_operator_name"
             android:persistent="true"
             android:selectAllOnFocus="true"
@@ -14,7 +14,7 @@
     <PreferenceCategory android:title="@string/title_cloud">
 
         <EditTextPreference
-            android:defaultValue="Default value"
+            android:defaultValue="127.0.0.1"
             android:key="@string/key_cloud_ip"
             android:persistent="true"
             android:selectAllOnFocus="true"
@@ -22,7 +22,7 @@
             android:title="@string/title_cloud_ip"
             app:useSimpleSummaryProvider="true" />
         <EditTextPreference
-            android:defaultValue="false"
+            android:defaultValue="8080"
             android:key="@string/key_cloud_port"
             android:persistent="true"
             android:selectAllOnFocus="true"

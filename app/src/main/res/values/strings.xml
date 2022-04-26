@@ -16,7 +16,7 @@
 
     <string name="preference_group_user">用户</string>
     <string name="preference_user_edit_title">当前用户名</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- 设置界面标题 -->
@@ -33,4 +33,9 @@
     <string name="key_cloud_ip">cloud_ip</string>
     <string name="key_cloud_port">cloud_port</string>
     <string name="fragment_user_add">添加被采集者信息</string>
+    <string name="title_place_holder">Title Place Holder</string>
+    <string name="content_place_holder">Content Place Holder</string>
+
+
+    <string name="collection_prompt">被采集用户</string>
 </resources>
