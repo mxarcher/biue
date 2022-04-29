@@ -1,13 +1,12 @@
-package com.mxarcher.biue.web.api;
+package com.mxarcher.biue.service.web.api;
 
 import com.mxarcher.biue.models.Collection;
-import com.mxarcher.biue.web.ReqBody;
-import com.mxarcher.biue.web.RespBody;
+import com.mxarcher.biue.service.web.ReqBody;
+import com.mxarcher.biue.service.web.RespBody;
 
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.Response;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.HTTP;
 import retrofit2.http.POST;

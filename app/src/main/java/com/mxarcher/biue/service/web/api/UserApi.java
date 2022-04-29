@@ -1,8 +1,8 @@
-package com.mxarcher.biue.web.api;
+package com.mxarcher.biue.service.web.api;
 
 import com.mxarcher.biue.models.User;
-import com.mxarcher.biue.web.ReqBody;
-import com.mxarcher.biue.web.RespBody;
+import com.mxarcher.biue.service.web.ReqBody;
+import com.mxarcher.biue.service.web.RespBody;
 
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.Response;

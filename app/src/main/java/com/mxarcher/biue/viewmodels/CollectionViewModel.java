@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.mxarcher.biue.models.Collection;
 import com.mxarcher.biue.repositories.CollectionRepository;
-import com.mxarcher.biue.web.ReqBody;
+import com.mxarcher.biue.service.web.ReqBody;
 
 import java.util.List;
 
@@ -38,5 +38,9 @@ public class CollectionViewModel extends AndroidViewModel {
 
     public void deleteCollection(ReqBody<Collection> reqBody) {
         repository.deleteCollection(reqBody);
+    }
+
+    public void updateCollection(ReqBody<Collection> reqBody) {
+        repository.updateCollection(reqBody);
     }
 }

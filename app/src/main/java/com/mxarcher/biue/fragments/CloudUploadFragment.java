@@ -1,4 +1,4 @@
-package com.mxarcher.biue.views;
+package com.mxarcher.biue.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,10 +14,10 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.mxarcher.biue.R;
 import com.mxarcher.biue.adapters.FragmentAdapter;
-import com.mxarcher.biue.views.upload.CollectionFragment;
-import com.mxarcher.biue.views.upload.FileFragment;
-import com.mxarcher.biue.views.upload.HandlingFragment;
-import com.mxarcher.biue.views.upload.UserFragment;
+import com.mxarcher.biue.fragments.upload.CollectionFragment;
+import com.mxarcher.biue.fragments.upload.FileFragment;
+import com.mxarcher.biue.fragments.upload.HandlingFragment;
+import com.mxarcher.biue.fragments.upload.UserFragment;
 
 public class CloudUploadFragment extends Fragment {
     private static final String TAG = "CloudUploadFragment";

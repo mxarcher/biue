@@ -1,4 +1,4 @@
-package com.mxarcher.biue.web;
+package com.mxarcher.biue.service.web;
 
 import com.google.gson.annotations.SerializedName;
 

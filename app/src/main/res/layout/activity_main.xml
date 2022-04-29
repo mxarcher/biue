@@ -12,14 +12,15 @@
         android:layout_height="match_parent">
 
 
+        <!-- app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" -->
         <androidx.fragment.app.FragmentContainerView
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             android:id="@+id/fragmentContainerView"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible"
             app:defaultNavHost="true"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             app:navGraph="@navigation/default_nav" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

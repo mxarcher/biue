@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.mxarcher.biue"
-        minSdk 30
+        minSdk 31
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -70,5 +70,9 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit2_version"
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit2_version"
 
+    implementation 'com.github.tbruyelle:rxpermissions:0.12'
+
+    // 引入快速傅里叶变换包
+    implementation 'org.apache.commons:commons-math3:3.6.1'
 
 }

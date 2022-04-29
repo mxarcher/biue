@@ -2,6 +2,7 @@ package com.mxarcher.biue;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.mxarcher.biue.viewmodels.ConfigViewModel;
-import com.mxarcher.biue.web.ServiceGenerator;
+import com.mxarcher.biue.service.web.ServiceGenerator;
 
 public class MainActivity extends AppCompatActivity {
     ConfigViewModel configViewModel;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        getWindow().setFormat(PixelFormat.TRANSPARENT);
 
         // 初始化各个viewModel的实例 以及servicegenerator
 

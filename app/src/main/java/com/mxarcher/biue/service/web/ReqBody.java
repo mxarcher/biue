@@ -1,4 +1,4 @@
-package com.mxarcher.biue.web;
+package com.mxarcher.biue.service.web;
 import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;

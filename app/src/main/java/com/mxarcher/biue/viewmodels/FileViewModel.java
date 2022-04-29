@@ -1,10 +1,13 @@
 package com.mxarcher.biue.viewmodels;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
+
+import com.mxarcher.biue.service.web.ServiceGenerator;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -12,6 +15,16 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 
 /**
  * @Author: MXArcher Lee
@@ -48,8 +61,8 @@ public class FileViewModel extends AndroidViewModel {
     }
 
     public boolean deleteFile(String filename) {
-        boolean ret =getApplication().deleteFile(filename);
-        if(ret){
+        boolean ret = getApplication().deleteFile(filename);
+        if (ret) {
             getFileInfoList();
         }
         return ret;
@@ -71,6 +84,38 @@ public class FileViewModel extends AndroidViewModel {
     private String createFileNameByDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss", Locale.CHINA);
         return sdf.format(new Date());
+    }
+
+    private void upLoad(String filename) {
+        File file = new File(filename);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part body =
+                MultipartBody.Part.createFormData("file", file.getName(), requestBody);
+        Observable<ResponseBody> x = ServiceGenerator.getUploadApiInstance().uploadFile(body);
+        x.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@io.reactivex.rxjava3.annotations.NonNull ResponseBody responseBody) {
+                        Log.d(TAG, "onNext: ");
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        Log.d(TAG, "onError: " + e.getMessage());
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
 }

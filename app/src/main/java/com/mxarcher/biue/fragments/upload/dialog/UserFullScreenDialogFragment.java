@@ -1,4 +1,4 @@
-package com.mxarcher.biue.views.upload.dialog;
+package com.mxarcher.biue.fragments.upload.dialog;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -17,7 +17,7 @@ import com.mxarcher.biue.databinding.FragmentUserFullScreenDialogBinding;
 import com.mxarcher.biue.models.User;
 import com.mxarcher.biue.viewmodels.ConfigViewModel;
 import com.mxarcher.biue.viewmodels.UserViewModel;
-import com.mxarcher.biue.web.ReqBody;
+import com.mxarcher.biue.service.web.ReqBody;
 
 import java.util.Objects;
 
@@ -65,7 +65,12 @@ public class UserFullScreenDialogFragment extends DialogFragment {
 
 
         binding.userDialogConfirm.setOnClickListener(v -> {
-            User user = new User();
+            User user;
+            if (getArguments() != null) {
+                user = new Gson().fromJson(getArguments().getString("info"), User.class);
+            } else {
+                user = new User();
+            }
             boolean sex = binding.userDialogSelectGender.getCheckedRadioButtonId() == R.id.user_dialog_gender_man;
             user.setSex(sex);
             user.setName(Objects.requireNonNull(binding.userDialogSetName.getText()).toString());

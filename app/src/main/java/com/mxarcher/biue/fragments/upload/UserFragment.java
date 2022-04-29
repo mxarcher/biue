@@ -1,4 +1,4 @@
-package com.mxarcher.biue.views.upload;
+package com.mxarcher.biue.fragments.upload;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -20,8 +20,11 @@ import com.mxarcher.biue.models.AdapterCallback;
 import com.mxarcher.biue.models.User;
 import com.mxarcher.biue.viewmodels.ConfigViewModel;
 import com.mxarcher.biue.viewmodels.UserViewModel;
-import com.mxarcher.biue.views.upload.dialog.UserFullScreenDialogFragment;
-import com.mxarcher.biue.web.ReqBody;
+import com.mxarcher.biue.fragments.upload.dialog.UserFullScreenDialogFragment;
+import com.mxarcher.biue.service.web.ReqBody;
+
+
+// TODO: 实现下拉刷新
 
 public class UserFragment extends Fragment {
     private static final String TAG = "UserFragment";
@@ -85,7 +88,7 @@ public class UserFragment extends Fragment {
         if (bundle != null) {
             dialog.setArguments(bundle);
         }
-        dialog.show(getParentFragmentManager(), "tag");
+        dialog.show(getParentFragmentManager(), "user");
     }
 
 }

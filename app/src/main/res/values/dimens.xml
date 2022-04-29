@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- https://stackoverflow.com/questions/56592168/how-can-i-get-the-height-of-bottomnavigationview-using-xml -->
+    <dimen name="bottom_navi_view_top">56dp</dimen>
+    <dimen name="fab_bottom_margin">90dp</dimen>
+    <dimen name="fab_right_margin">20dp</dimen>
+</resources>

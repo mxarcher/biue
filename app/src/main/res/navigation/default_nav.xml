@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/default_nav"
-    app:startDestination="@id/cloudUploadFragment">
+    app:startDestination="@id/bluetoothFragment">
     <!--在这里可以设置默认启动界面-->
 
     <fragment
-        android:id="@+id/blueToothFragment"
-        android:name="com.mxarcher.biue.views.BlueToothFragment"
+        android:id="@+id/bluetoothFragment"
+        android:name="com.mxarcher.biue.fragments.BluetoothFragment"
         android:label="@string/bottom_menu_bluetooth"
-        tools:layout="@layout/blue_tooth_fragment" />
+        tools:layout="@layout/bluetooth_fragment" />
     <fragment
         android:id="@+id/wavesFragment"
-        android:name="com.mxarcher.biue.views.WavesFragment"
+        android:name="com.mxarcher.biue.fragments.WavesFragment"
         android:label="@string/bottom_menu_waves"
         tools:layout="@layout/waves_fragment" />
     <fragment
         android:id="@+id/cloudUploadFragment"
-        android:name="com.mxarcher.biue.views.CloudUploadFragment"
+        android:name="com.mxarcher.biue.fragments.CloudUploadFragment"
         android:label="@string/bottom_menu_upload"
         tools:layout="@layout/cloud_upload_fragment" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.mxarcher.biue.views.SettingsFragment"
+        android:name="com.mxarcher.biue.fragments.SettingsFragment"
         android:label="@string/bottom_menu_settings" />
 </navigation>

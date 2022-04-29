@@ -1,4 +1,4 @@
-package com.mxarcher.biue.views;
+package com.mxarcher.biue.fragments;
 
 import static android.net.InetAddresses.isNumericAddress;
 
@@ -16,7 +16,7 @@ import androidx.preference.PreferenceFragmentCompat;
 
 import com.mxarcher.biue.R;
 import com.mxarcher.biue.viewmodels.ConfigViewModel;
-import com.mxarcher.biue.web.ServiceGenerator;
+import com.mxarcher.biue.service.web.ServiceGenerator;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
     private static final String TAG = "SettingsFragment";

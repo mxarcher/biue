@@ -5,10 +5,10 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import com.mxarcher.biue.models.Handling;
-import com.mxarcher.biue.web.ReqBody;
-import com.mxarcher.biue.web.RespBody;
-import com.mxarcher.biue.web.ServiceGenerator;
-import com.mxarcher.biue.web.api.HandlingApi;
+import com.mxarcher.biue.service.web.ReqBody;
+import com.mxarcher.biue.service.web.RespBody;
+import com.mxarcher.biue.service.web.ServiceGenerator;
+import com.mxarcher.biue.service.web.api.HandlingApi;
 
 import java.util.List;
 
@@ -98,6 +98,33 @@ public class HandlingRepository {
                 });
     }
 
+    public void updateHandling(ReqBody<Handling> reqBody) {
+        Observable<RespBody<Boolean>> x = api.UpdateHandling(reqBody);
+        x.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<RespBody<Boolean>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull RespBody<Boolean> booleanRespBody) {
+                        getHandlingList();
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        Log.d(TAG, "onError: " + e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
     public void deleteHandling(ReqBody<Handling> reqBody) {
         Observable<Response<Void>> x = api.DeleteHandling(reqBody);
         x.subscribeOn(Schedulers.io())
@@ -117,7 +144,7 @@ public class HandlingRepository {
                     @Override
                     public void onError(@NonNull Throwable e) {
 
-                        Log.d(TAG, "onDeleteError: ");
+                        Log.d(TAG, "onDeleteError: " + e.getMessage());
                     }
 
                     @Override

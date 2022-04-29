@@ -1,4 +1,4 @@
-package com.mxarcher.biue.views.upload.dialog;
+package com.mxarcher.biue.fragments.upload.dialog;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,12 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.gson.Gson;
 import com.mxarcher.biue.R;
 import com.mxarcher.biue.databinding.FragmentHandlingFullScreenDialogBinding;
 import com.mxarcher.biue.models.Handling;
 import com.mxarcher.biue.viewmodels.ConfigViewModel;
 import com.mxarcher.biue.viewmodels.HandlingViewModel;
-import com.mxarcher.biue.web.ReqBody;
+import com.mxarcher.biue.service.web.ReqBody;
 
 import java.util.Objects;
 
@@ -27,9 +28,6 @@ public class HandlingFullScreenDialogFragment extends DialogFragment {
     private ConfigViewModel configViewModel;
     private HandlingViewModel handlingViewModel;
 
-    public static HandlingFullScreenDialogFragment newInstance() {
-        return new HandlingFullScreenDialogFragment();
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +37,7 @@ public class HandlingFullScreenDialogFragment extends DialogFragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentHandlingFullScreenDialogBinding.inflate(inflater, container, false);
         configViewModel = new ViewModelProvider(requireActivity()).get(ConfigViewModel.class);
@@ -52,8 +50,23 @@ public class HandlingFullScreenDialogFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.fragmentHandleFullToolbar.setNavigationOnClickListener(v -> dismiss());
+        if (getArguments() != null) {
+            Handling handling = new Gson().fromJson(getArguments().getString("info"), Handling.class);
+            binding.handlingDialogSetName.setText(handling.getName());
+            binding.handlingDialogComments.setText(handling.getComments());
+            binding.handlingDialogSetPath.setText(handling.getPath());
+            binding.handlingDialogSetAlgorithm.setText(handling.getAlgorithm());
+            binding.handlingDialogSetResults.setText(handling.getResults());
+        }
+
         binding.handlingDialogConfirm.setOnClickListener(v -> {
-            Handling handling = new Handling();
+
+            Handling handling;
+            if (getArguments() != null) {
+                handling = new Gson().fromJson(getArguments().getString("info"), Handling.class);
+            } else {
+                handling = new Handling();
+            }
             handling.setName(Objects.requireNonNull(binding.handlingDialogSetName.getText()).toString());
             handling.setResults(Objects.requireNonNull(binding.handlingDialogSetResults.getText()).toString());
             handling.setPath(Objects.requireNonNull(binding.handlingDialogSetPath.getText()).toString());
@@ -63,13 +76,14 @@ public class HandlingFullScreenDialogFragment extends DialogFragment {
             reqBody.setModel(handling);
             String operator_key = getString(R.string.key_operator_name);
             reqBody.setOperator(configViewModel.get(operator_key));
-            handlingViewModel.addHandling(reqBody);
+            if (getArguments() != null) {
+                handlingViewModel.updateHandling(reqBody);
+            } else {
+                handlingViewModel.addHandling(reqBody);
+            }
             Log.d(TAG, "onViewCreated: " + reqBody);
             dismiss();
         });
-
-
-        // TODO: 增加添加Handling的部分
 
 
     }

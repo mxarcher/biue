@@ -1,11 +1,12 @@
-package com.mxarcher.biue.web;
+package com.mxarcher.biue.service.web;
 
 import android.util.Log;
 
-import com.mxarcher.biue.web.api.CollectionApi;
-import com.mxarcher.biue.web.api.HandlingApi;
-import com.mxarcher.biue.web.api.LogApi;
-import com.mxarcher.biue.web.api.UserApi;
+import com.mxarcher.biue.service.web.api.CollectionApi;
+import com.mxarcher.biue.service.web.api.HandlingApi;
+import com.mxarcher.biue.service.web.api.LogApi;
+import com.mxarcher.biue.service.web.api.UploadApi;
+import com.mxarcher.biue.service.web.api.UserApi;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
@@ -51,5 +52,9 @@ public class ServiceGenerator {
 
     public static String getBaseUrl() {
         return baseUrl;
+    }
+
+    public static UploadApi getUploadApiInstance() {
+        return retrofit.create(UploadApi.class);
     }
 }

@@ -5,10 +5,10 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import com.mxarcher.biue.models.Collection;
-import com.mxarcher.biue.web.ReqBody;
-import com.mxarcher.biue.web.RespBody;
-import com.mxarcher.biue.web.ServiceGenerator;
-import com.mxarcher.biue.web.api.CollectionApi;
+import com.mxarcher.biue.service.web.ReqBody;
+import com.mxarcher.biue.service.web.RespBody;
+import com.mxarcher.biue.service.web.ServiceGenerator;
+import com.mxarcher.biue.service.web.api.CollectionApi;
 
 import java.util.List;
 
@@ -94,6 +94,35 @@ public class CollectionRepository {
                     @Override
                     public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "onError: ");
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+    }
+
+    public void updateCollection(ReqBody<Collection> reqBody) {
+        Observable<RespBody<Boolean>> respBody = api.UpdateCollection(reqBody);
+        respBody.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<RespBody<Boolean>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull RespBody<Boolean> booleanRespBody) {
+                        Log.d(TAG, "onNext: ");
+                        getCollectionList();
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        Log.d(TAG, "onError: " + e.getMessage());
                     }
 
                     @Override

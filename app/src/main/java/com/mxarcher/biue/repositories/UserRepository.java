@@ -5,10 +5,10 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import com.mxarcher.biue.models.User;
-import com.mxarcher.biue.web.ReqBody;
-import com.mxarcher.biue.web.RespBody;
-import com.mxarcher.biue.web.ServiceGenerator;
-import com.mxarcher.biue.web.api.UserApi;
+import com.mxarcher.biue.service.web.ReqBody;
+import com.mxarcher.biue.service.web.RespBody;
+import com.mxarcher.biue.service.web.ServiceGenerator;
+import com.mxarcher.biue.service.web.api.UserApi;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.mxarcher.biue.views.upload;
+package com.mxarcher.biue.fragments.upload;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -17,8 +17,9 @@ import com.mxarcher.biue.adapters.FileListAdapter;
 import com.mxarcher.biue.databinding.FragmentFileBinding;
 import com.mxarcher.biue.viewmodels.ConfigViewModel;
 import com.mxarcher.biue.viewmodels.FileViewModel;
-import com.mxarcher.biue.views.upload.dialog.FileFullScreenDialogFragment;
+import com.mxarcher.biue.fragments.upload.dialog.FileFullScreenDialogFragment;
 
+// TODO: 实现下拉刷新
 public class FileFragment extends Fragment {
     private static final String TAG = "FileFragment";
     ConfigViewModel configViewModel;
@@ -48,7 +49,9 @@ public class FileFragment extends Fragment {
             adapter = new FileListAdapter(new FileListAdapter.Callback() {
                 @Override
                 public void onUpload(String filename) {
-                    showDialog();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("filename", filename);
+                    showDialog(bundle);
                 }
 
                 @Override
@@ -73,8 +76,12 @@ public class FileFragment extends Fragment {
 
     }
 
-    private void showDialog() {
+    private void showDialog(Bundle bundle) {
+        if(bundle == null){
+            return;
+        }
         DialogFragment dialog = new FileFullScreenDialogFragment();
+        dialog.setArguments(bundle);
         dialog.show(getParentFragmentManager(), "file");
     }
 }

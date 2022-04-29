@@ -1,4 +1,4 @@
-package com.mxarcher.biue.views.upload;
+package com.mxarcher.biue.fragments.upload;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.gson.Gson;
 import com.mxarcher.biue.R;
 import com.mxarcher.biue.adapters.CollectionListAdapter;
 import com.mxarcher.biue.databinding.FragmentCollectionBinding;
@@ -19,9 +20,10 @@ import com.mxarcher.biue.models.AdapterCallback;
 import com.mxarcher.biue.models.Collection;
 import com.mxarcher.biue.viewmodels.CollectionViewModel;
 import com.mxarcher.biue.viewmodels.ConfigViewModel;
-import com.mxarcher.biue.views.upload.dialog.CollectionFullScreenDialogFragment;
-import com.mxarcher.biue.web.ReqBody;
+import com.mxarcher.biue.fragments.upload.dialog.CollectionFullScreenDialogFragment;
+import com.mxarcher.biue.service.web.ReqBody;
 
+// TODO: 实现下拉刷新
 public class CollectionFragment extends Fragment {
     private static final String TAG = "CollectionFragment";
     FragmentCollectionBinding binding;
@@ -51,7 +53,10 @@ public class CollectionFragment extends Fragment {
             adapter = new CollectionListAdapter(new AdapterCallback<Collection>() {
                 @Override
                 public void onEdit(Collection collection) {
-
+                    Bundle bundle = new Bundle();
+                    String pass = new Gson().toJson(collection);
+                    bundle.putString("info", pass);
+                    showDialog(bundle);
                 }
 
                 @Override
@@ -64,7 +69,7 @@ public class CollectionFragment extends Fragment {
                 }
             });
         }
-        binding.fragmentCollectionFab.setOnClickListener(v -> showDialog());
+        binding.fragmentCollectionFab.setOnClickListener(v -> showDialog(null));
         LinearLayoutManager llm = new LinearLayoutManager(requireContext());
         llm.setReverseLayout(true);
         llm.setStackFromEnd(true);
@@ -76,8 +81,10 @@ public class CollectionFragment extends Fragment {
 
     }
 
-    private void showDialog() {
+    private void showDialog(Bundle bundle) {
         DialogFragment dialog = new CollectionFullScreenDialogFragment();
+        if (bundle != null)
+            dialog.setArguments(bundle);
         dialog.show(getParentFragmentManager(), "tag");
 
     }

@@ -1,4 +1,4 @@
-package com.mxarcher.biue.web.api;
+package com.mxarcher.biue.service.web.api;
 
 /**
  * @Author: MXArcher Lee

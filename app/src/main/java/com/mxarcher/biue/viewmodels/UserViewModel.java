@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.mxarcher.biue.models.User;
 import com.mxarcher.biue.repositories.UserRepository;
-import com.mxarcher.biue.web.ReqBody;
+import com.mxarcher.biue.service.web.ReqBody;
 
 import java.util.List;
 

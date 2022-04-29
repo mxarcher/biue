@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.WavesFragment">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/bottom_navi_view_top">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/press_to_start_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/material_dynamic_neutral90"
+            android:hint="按下启动服务" />
+
+        <Button
+            android:id="@+id/press_to_stop_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="@color/material_dynamic_neutral90"
+            android:hint="按下停止服务" />
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        app:cardElevation="7dp"
+        app:contentPadding="10dp">
+
+        <com.mxarcher.biue.views.ChartView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        app:cardElevation="7dp"
+        app:contentPadding="10dp">
+
+        <com.mxarcher.biue.views.ChartView
+            android:id="@+id/freq"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout><!--
+
+    -->

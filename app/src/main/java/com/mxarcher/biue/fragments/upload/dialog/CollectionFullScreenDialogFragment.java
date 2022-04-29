@@ -1,4 +1,4 @@
-package com.mxarcher.biue.views.upload.dialog;
+package com.mxarcher.biue.fragments.upload.dialog;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.gson.Gson;
 import com.mxarcher.biue.R;
 import com.mxarcher.biue.adapters.UserSpinnerAdapter;
 import com.mxarcher.biue.databinding.FragmentCollectionFullScreenDialogBinding;
@@ -19,7 +20,7 @@ import com.mxarcher.biue.models.User;
 import com.mxarcher.biue.viewmodels.CollectionViewModel;
 import com.mxarcher.biue.viewmodels.ConfigViewModel;
 import com.mxarcher.biue.viewmodels.UserViewModel;
-import com.mxarcher.biue.web.ReqBody;
+import com.mxarcher.biue.service.web.ReqBody;
 
 import java.util.List;
 import java.util.Objects;
@@ -57,9 +58,30 @@ public class CollectionFullScreenDialogFragment extends DialogFragment {
         UserSpinnerAdapter userSpinnerAdapter = new UserSpinnerAdapter(requireContext(), userList);
         binding.collectionDialogSelectUser.setAdapter(userSpinnerAdapter);
 
+        if (getArguments() != null) {
+            Collection collection = new Gson().fromJson(getArguments().getString("info"), Collection.class);
+            binding.collectionDialogSetDataset.setText(collection.getDataset());
+            binding.collectionDialogSetName.setText(collection.getName());
+            binding.collectionDialogSetComments.setText(collection.getComments());
+            binding.collectionDialogSetProgram.setText(collection.getProgram());
+            binding.collectionDialogSetLocation.setText(collection.getLocation());
+            int uid = collection.getUid();
+            int size = userList.size();
+            for (int i = 0; i < size; i++) {
+                if (userList.get(i).getId() == uid) {
+                    binding.collectionDialogSelectUser.setSelection(i);
+                    break;
+                }
+            }
+        }
 
         binding.collectionDialogConfirm.setOnClickListener(v -> {
-            Collection collection = new Collection();
+            Collection collection;
+            if (getArguments() != null) {
+                collection = new Gson().fromJson(getArguments().getString("info"), Collection.class);
+            } else {
+                collection = new Collection();
+            }
             User user = (User) binding.collectionDialogSelectUser.getSelectedItem();
             collection.setUid(user.getId());
             collection.setDataset(Objects.requireNonNull(binding.collectionDialogSetDataset.getText()).toString());
@@ -71,7 +93,11 @@ public class CollectionFullScreenDialogFragment extends DialogFragment {
             reqBody.setModel(collection);
             String operator_key = getString(R.string.key_operator_name);
             reqBody.setOperator(configViewModel.get(operator_key));
-            collectionViewModel.addCollection(reqBody);
+            if (getArguments() != null) {
+                collectionViewModel.updateCollection(reqBody);
+            } else {
+                collectionViewModel.addCollection(reqBody);
+            }
             Log.d(TAG, "onViewCreated: " + collection);
             dismiss();
         });
